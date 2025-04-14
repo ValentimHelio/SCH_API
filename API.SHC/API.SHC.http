@@ -1,0 +1,6 @@
+@API.SHC_HostAddress = http://localhost:5184
+
+GET {{API.SHC_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
