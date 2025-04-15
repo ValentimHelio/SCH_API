@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -12,6 +12,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Service", "Api.Service\Api.Service.csproj", "{4E6D08C5-1365-4F61-87F1-DF03F730F981}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Data", "Api.Data\Api.Data.csproj", "{472A6E97-37BE-48F0-842A-F31731D834DB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3A0AB27A-808D-43AE-A511-3742448A4FC5} = {3A0AB27A-808D-43AE-A511-3742448A4FC5}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.CrossCutting", "Api.CrossCutting\Api.CrossCutting.csproj", "{360C2F5A-85FD-4D35-82B1-BBB16D96C72B}"
 EndProject
