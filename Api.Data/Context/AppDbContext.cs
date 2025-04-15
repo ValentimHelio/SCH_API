@@ -1,4 +1,5 @@
-﻿using Api.Domain.Entities;
+﻿using Api.Data.Mapping;
+using Api.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.Data.Context;
@@ -16,5 +17,10 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<UserEntitiy>(new UserMap().Configure);
+        modelBuilder.Entity<ClienteEntity>(new ClienteMap().Configure);
+        modelBuilder.Entity<EmpresaEntity>(new EmpresaMap().Configure);
+        modelBuilder.Entity<MovimentoEntity>(new MovimentoMap().Configure);
+        modelBuilder.Entity<ServicoEntity>(new ServicoMap().Configure);
     }
 }
