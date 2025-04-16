@@ -14,6 +14,9 @@ builder.Services.AddValidatorsFromAssemblyContaining<ClienteValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<EmpresaValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<MovimentoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<ServicoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<EstadoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<MunicipioValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<EnderecoValidator>();
 
 var app = builder.Build();
 

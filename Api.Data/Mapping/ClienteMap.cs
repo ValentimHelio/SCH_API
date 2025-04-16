@@ -1,64 +1,35 @@
 ﻿using Api.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Api.Data.Mapping
+namespace Api.Data.Mapping;
+
+public class ClienteMap : IEntityTypeConfiguration<ClienteEntity>
 {
-    public class ClienteMap : IEntityTypeConfiguration<ClienteEntity>
+    public void Configure(EntityTypeBuilder<ClienteEntity> builder)
     {
-        public void Configure(EntityTypeBuilder<ClienteEntity> builder)
+        builder.ToTable("cliente");
+
+        builder.HasKey(c => c.Id);
+
+        builder.Property(c => c.NomeCliente).IsRequired().HasMaxLength(100);
+        builder.Property(c => c.Fone).IsRequired().HasMaxLength(20);
+        builder.Property(c => c.Cpf).IsRequired().HasMaxLength(14);
+
+        builder.OwnsOne(c => c.Endereco, endereco =>
         {
-            builder.ToTable("cliente");
+            endereco.Property(e => e.Logradouro).IsRequired().HasMaxLength(100).HasColumnName("logradouro");
+            endereco.Property(e => e.Cep).IsRequired().HasMaxLength(20).HasColumnName("cep");
 
-            builder.HasKey(x => x.Id);
+            endereco.Property(e => e.EstadoId).HasColumnName("estado_id");
+            endereco.HasOne(e => e.Estado)
+                .WithMany()
+                .HasForeignKey("estado_id");
 
-            builder.Property(x => x.NomeCliente)
-                .HasColumnName("nomecliente")
-                .HasMaxLength(100)
-                .IsRequired();
-
-            builder.Property(x => x.Endereco)
-                .HasColumnName("endereco")
-                .HasMaxLength(100)
-                .IsRequired();
-
-            builder.Property(x => x.Cidade)
-                .HasColumnName("cidade")
-                .HasMaxLength(100)
-                .IsRequired();
-
-            builder.Property(x => x.Uf)
-                .HasColumnName("uf")
-                .HasMaxLength(2)
-                .IsRequired();
-
-            builder.Property(x => x.Cep)
-                .HasColumnName("cep")
-                .HasMaxLength(20)
-                .IsRequired();
-
-            builder.Property(x => x.Fone)
-                .HasColumnName("fone")
-                .HasMaxLength(20)
-                .IsRequired();
-
-            builder.Property(x => x.Cpf)
-                .HasColumnName("cpf")
-                .HasMaxLength(14)
-                .IsRequired();
-
-            builder.Property(x => x.CreateAt)
-                .HasColumnName("create_at")
-                .IsRequired();
-
-            builder.Property(x => x.UpdateAt)
-                .HasColumnName("update_at")
-                .IsRequired(false);
-        }
+            endereco.Property(e => e.MunicipioId).HasColumnName("municipio_id");
+            endereco.HasOne(e => e.Municipio)
+                .WithMany()
+                .HasForeignKey("municipio_id");
+        });
     }
 }

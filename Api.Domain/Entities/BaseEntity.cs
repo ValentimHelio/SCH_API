@@ -17,4 +17,5 @@ public abstract class BaseEntity
     }
 
     public DateTime? UpdateAt { get; set; }
+    public bool IsDeleted { get; set; }
 }
