@@ -22,5 +22,8 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<EmpresaEntity>(new EmpresaMap().Configure);
         modelBuilder.Entity<MovimentoEntity>(new MovimentoMap().Configure);
         modelBuilder.Entity<ServicoEntity>(new ServicoMap().Configure);
+        modelBuilder.Entity<EstadoEntity>(new EstadoMap().Configure);
+        modelBuilder.Entity<MunicipioEntity>(new MunicipioMap().Configure);
+        modelBuilder.Entity<EnderecoEntity>(new EnderecoMap().Configure);
     }
 }

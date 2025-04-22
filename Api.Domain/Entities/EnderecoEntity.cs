@@ -1,6 +1,6 @@
 ﻿namespace Api.Domain.Entities
 {
-    public class EnderecoEntity
+    public class EnderecoEntity : BaseEntity
     {
         public string? Logradouro { get; set; }
         public string? Numero { get; set; }
