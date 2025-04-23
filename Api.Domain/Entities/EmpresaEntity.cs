@@ -2,9 +2,9 @@
 
 public class EmpresaEntity : BaseEntity
 {
-    public string? NomeEmpresa { get; set; }
-    public string? Fone { get; set; }
-    public string? Cpf { get; set; }
+    public string NomeEmpresa { get; set; }
+    public string Fone { get; set; }
+    public string Cpf { get; set; }
 
     public int EnderecoId { get; set; }
     public virtual EnderecoEntity Endereco { get; set; }

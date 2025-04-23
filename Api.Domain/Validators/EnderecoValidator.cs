@@ -8,17 +8,21 @@ public class EnderecoValidator : AbstractValidator<EnderecoEntity>
     public EnderecoValidator()
     {
         RuleFor(e => e.Logradouro)
-            .NotEmpty().WithMessage("O logradouro deve ser informado")
-            .MaximumLength(100);
+            .NotEmpty().WithMessage("Logradouro é obrigatório.")
+            .MaximumLength(100).WithMessage("Logradouro deve ter no máximo 100 caracteres.");
+
+        RuleFor(e => e.Numero)
+            .NotEmpty().WithMessage("Número é obrigatório.")
+            .MaximumLength(10).WithMessage("Número deve ter no máximo 10 caracteres.");
 
         RuleFor(e => e.Cep)
-            .NotEmpty().WithMessage("O CEP deve ser informado")
-            .MaximumLength(20);
+            .NotEmpty().WithMessage("CEP é obrigatório.")
+            .MaximumLength(20).WithMessage("CEP deve ter no máximo 20 caracteres.");
 
         RuleFor(e => e.EstadoId)
-            .GreaterThan(0).WithMessage("O Estado deve ser informado");
+            .GreaterThan(0).WithMessage("Estado é obrigatório.");
 
         RuleFor(e => e.MunicipioId)
-            .GreaterThan(0).WithMessage("O Município deve ser informado");
+            .GreaterThan(0).WithMessage("Município é obrigatório.");
     }
 }
